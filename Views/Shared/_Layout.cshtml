@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Paycompute</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link href="~/css/style.css" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/e4c726154a.js" crossorigin="anonymous"></script>
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+    <div class="container-scroller">
+        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                <a class="navbar-brand brand-logo"><img src="~/images/Paycompute2.gif" alt="logo" /></a>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+                <partial name="_LoginPartial" />
+            </div>
+        </nav>
+        <div class="container-fluid page-body-wrapper">
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                        <div class="dropdown-menu">
+                            <a class="nav-link" asp-controller="Employee" asp-action="Create"> New Employee</a>
+                            <a class="nav-link" asp-controller="Employee" asp-action="Index"> All Employees</a>
+                            <a class="nav-link" asp-controller="Pay" asp-action="Create"> New Pay</a>
+                            <a class="nav-link" asp-controller="Pay" asp-action="Index"> Payment Records</a>
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
+</div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#Employee" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="fas fa-users fa-lg text-primary" style="margin-right:0.7em"></i>
+                            <span class="menu-title">Employee</span>
+                            <i class="menu-arrow text-primary"></i>
+                        </a>
+                        <div class="collapse" id="Employee">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"><a class="nav-link" asp-controller="Employee" asp-action="Index"> All Employees</a></li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Employee" asp-action="Create"> New Employee</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="Employee" asp-action="Index"> All Employees</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="Pay" asp-action="Create"> New Pay</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="Pay" asp-action="Index"> Payment Records</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#Payroll" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="fas fa-pound-sign fa-lg text-primary" style="margin-right:0.7em"></i>
+                            <span class="menu-title">Payroll</span>
+                            <i class="menu-arrow text-primary"></i>
+                        </a>
+                        <div class="collapse" id="Payroll">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"><a class="nav-link" asp-controller="Pay" asp-action="Create"> New Pay</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="Pay" asp-action="Index"> Payment Records</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="main-panel">
+                <partial name="_CookieConsentPartial" />
+                <div class="content-wrapper">
+                    @RenderBody()
+                </div>
+                <footer class="footer">
+                    <p> &copy; @DateTime.UtcNow.Year - Paycompute - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

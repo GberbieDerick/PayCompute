@@ -1,0 +1,266 @@
+﻿@model EmployeeCreateViewModel
+@{ ViewBag.Title = "Employee";}
+
+
+
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card ">
+
+
+
+            <div class="card-body">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active " aria-current="page">
+                            Create New Employee
+                        </li>
+
+                    </ol>
+
+                </nav>
+
+                <br /><br />
+
+                      <form method="post" enctype="multipart/form-data" asp-action="Create">
+                          <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                          <div class="form-row">
+                              <div class="form-group col-md-2">
+                                  <label asp-for="EmployeeNo"></label>
+
+                              </div>
+
+                              <div class="form-group col-md-3">
+                                  <input asp-for="EmployeeNo" class="form-control" placeholder="EMP000" />
+                                  <span asp-validation-for="EmployeeNo"></span>
+
+                              </div>
+                              <div class="col-md-2"></div>
+
+                              <div class="form-group col-md-2">
+                                  <label asp-for="DateJoined"></label>
+
+                              </div>
+
+                              <div class="form-group col-md-3">
+                                  <input asp-for="DateJoined" class="form-control" />
+                                  <span asp-validation-for="DateJoined"></span>
+
+                              </div>
+
+                          </div>
+
+                          <div class="form-row">
+                              <div class="form-group col-md-2">
+                                  <label asp-for="FirstName"></label>
+
+                              </div>
+
+                              <div class="form-group col-md-3">
+                                  <input asp-for="FirstName" class="form-control" placeholder="Enter First Name" />
+                                  <span asp-validation-for="FirstName"></span>
+
+                              </div>
+
+
+                              <div class="form-group col-md-2">
+                                  <input asp-for="MiddleName" class="form-control" placeholder="Enter Middle Name" />
+                                  <span asp-validation-for="MiddleName"></span>
+
+                              </div>
+
+                              <div class="form-group col-md-2">
+                                  <label asp-for="LastName"></label>
+
+                              </div>
+
+                              <div class="form-group col-md-3">
+                                  <input asp-for="LastName" class="form-control" placeholder="Enter Last Name" />
+                                  <span asp-validation-for="LastName"></span>
+
+                              </div>
+
+                          </div>
+
+                          <div class="form-row">
+                              <div class="form-group col-md-2">
+                                  <label asp-for="Gender"></label>
+
+                              </div>
+
+                              <div class="form-group col-md-3">
+                                  <select class="form-check" asp-for="Gender">
+
+
+                                      <option>Male</option>
+                                      <option>Female</option>
+                                  </select>
+                                  <span asp-validation-for="Gender"></span>
+
+                              </div>
+
+                              <div class=" col-md-2"></div>
+                              <div class="form-group col-md-2">
+                                  <label asp-for="Dob"></label>
+
+                              </div>
+                              <div class="form-group col-md-3">
+                                  <input asp-for="Dob" class="form-control" placeholder="Enter Middle Name" />
+                                  <span asp-validation-for="Dob"></span>
+
+                              </div>
+
+
+
+                          </div>
+                          <div class="form-row">
+                              <div class="form-group col-md-2">
+                                  <label asp-for="NationalInsurance"></label>
+
+                              </div>
+
+                              <div class="form-group col-md-3">
+                                  <input asp-for="NationalInsurance" class="form-control" placeholder="Enter Insurance No." />
+                                  <span asp-validation-for="NationalInsurance"></span>
+
+                              </div>
+                              <div class="col-md-2"></div>
+
+                              <div class="form-group col-md-2">
+                                  <label asp-for="Email"></label>
+
+                              </div>
+
+                              <div class="form-group col-md-3">
+                                  <input asp-for="Email" class="form-control" />
+                                  <span asp-validation-for="Email"></span>
+
+                              </div>
+
+                          </div>
+                          <div class="form-row">
+                              <div class="form-group col-md-2">
+                                  <label asp-for="Phone"></label>
+
+                              </div>
+
+                              <div class="form-group col-md-3">
+                                  <input asp-for="Phone" class="form-control" placeholder="Enter Phone No." />
+                                  <span asp-validation-for="Phone"></span>
+
+                              </div>
+                              <div class="col-md-2"></div>
+
+                              <div class="form-group col-md-2">
+                                  <label asp-for="PaymentMethod"></label>
+
+                              </div>
+
+                              <div class="form-group col-md-3">
+                                  <select asp-for="DateJoined" class="form-control" asp-items="Html.GetEnumSelectList<Paycompute.Entity.PaymentMethod>()"></select>
+                                  <span asp-validation-for="PaymentMethod"></span>
+
+                              </div>
+
+                          </div>
+
+                          <div class="form-row">
+                              <div class="form-group col-md-2">
+                                  <label asp-for="StudentLoan"></label>
+
+                              </div>
+
+                              <div class="form-group col-md-3">
+                                  <select asp-for="StudentLoan" class="form-control" asp-items="Html.GetEnumSelectList<Paycompute.Entity.StudentLoan>()"></select>
+                                  <span asp-validation-for="StudentLoan"></span>
+
+                              </div>
+                              <div class="col-md-2"></div>
+
+                              <div class="form-group col-md-2">
+                                  <label asp-for="UnionMember"></label>
+
+                              </div>
+
+                              <div class="form-group col-md-3">
+                                  <select asp-for="UnionMember" class="form-control" asp-items="Html.GetEnumSelectList<Paycompute.Entity.UnionMember>()"></select>
+                                  <span asp-validation-for="UnionMember"></span>
+
+                              </div>
+
+                          </div>
+                          <div class="form-row">
+                              <div class="form-group col-md-2">
+                                  <label asp-for="Designation"></label>
+
+                              </div>
+
+                              <div class="form-group col-md-3">
+                                  <input asp-for="Designation" class="form-control" placeholder="Enter Designation Date" />
+                                  <span asp-validation-for="Designation"></span>
+
+                              </div>
+                              <div class="col-md-2"></div>
+
+                              <div class="form-group col-md-1">
+                                  <label asp-for="ImageURL"></label>
+
+                              </div>
+
+                              <div class="form-group col-md-4">
+                                  <div class="btn btn-primary btn-icon-text">
+                                      <i class="fas fa-cloud-upload-alt"></i>
+                                      <input asp-for="ImageURL" type="file" value="upload" />
+                                      <span asp-validation-for="ImageURL"></span>
+                                  </div>
+
+                              </div>
+
+                          </div>
+                          <div class="form-group ">
+                              <label asp-for="Address"></label>
+                              <input asp-for="Address" class="form-control" placeholder="Enter Address..." />
+                              <span asp-validation-for="Address"></span>
+
+                          </div>
+
+                          <div class="form-group ">
+                              <label asp-for="City"></label>
+                              <input asp-for="City" class="form-control" placeholder="Enter City/Town..." />
+                              <span asp-validation-for="City"></span>
+
+                          </div>
+                          <div class="form-group ">
+                              <label asp-for="PostCode"></label>
+                              <input asp-for="PostCode" class="form-control" placeholder="Enter Postcode..." />
+                              <span asp-validation-for="PostCode"></span>
+
+                          </div>
+                          <div class="form-group ">
+                              <button type="submit" class="btn btn-rounded btn-primary float-left">
+
+                                  <i class="fas fa-plus-square" style="margin-right:0.73em;"></i>
+                                  Save
+                              </button>
+                              <a asp-action="Index" class="btn btn-rounded btn-primary float-right"><i style="margin-right:0.73em;" class="fas fa-caret-square-left">Back</i></a>
+                              
+
+                          </div>
+                      </form>
+
+
+</div>
+        </div>
+
+
+    </div>
+
+
+@section Scripts{
+
+@{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+ }
